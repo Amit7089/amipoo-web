@@ -10,16 +10,34 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: "http://localhost:5173",
-}));
+// Allowed frontend origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+// CORS Middleware
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests without origin (health checks, server-to-server)
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
 
 // Database connection
 connectDB();
 
-// Health check
+// Health Check
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -30,6 +48,7 @@ app.get("/", (req, res) => {
 // Inquiry API
 app.use("/api/inquiries", inquiryRoutes);
 
+// Admin API
 app.use("/api/admin", adminRoutes);
 
 // Server

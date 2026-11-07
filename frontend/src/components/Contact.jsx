@@ -18,7 +18,7 @@ const initialForm = {
 };
 
 const WHATSAPP_NUMBER = "917089030657";
-const API_URL = "http://localhost:5000/api/inquiries";
+const API_URL = "https://amipoo-web.onrender.com/api/inquiries";
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);

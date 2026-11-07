@@ -11,7 +11,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/admin";
+// Live Render Backend API
+const API_URL = "https://amipoo-web.onrender.com/api/admin";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -68,7 +69,6 @@ export default function AdminLogin() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 px-5 py-12">
-      {/* Background Effects */}
       <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px]" />
       <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-[120px]" />
 
@@ -79,6 +79,7 @@ export default function AdminLogin() {
         className="relative w-full max-w-md"
       >
         <div className="rounded-3xl border border-white/10 bg-white p-8 shadow-2xl sm:p-10">
+
           {/* Logo */}
           <div className="mb-8 text-center">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-200">
@@ -101,6 +102,7 @@ export default function AdminLogin() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+
             {/* Username */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
@@ -189,6 +191,7 @@ export default function AdminLogin() {
                 />
               )}
             </button>
+
           </form>
 
           <div className="mt-8 border-t border-slate-100 pt-6 text-center">

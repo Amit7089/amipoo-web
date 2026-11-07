@@ -18,7 +18,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/admin";
+const API_URL = "https://amipoo-web.onrender.com/api/admin";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
