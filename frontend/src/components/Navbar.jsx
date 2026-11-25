@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import logo from "../assets/amipoo-logo.png";
 
@@ -37,7 +38,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -47,6 +48,13 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+
+          <Link
+            to="/hotel-website-design"
+            className="text-blue-700 font-bold hover:text-blue-900 transition whitespace-nowrap"
+          >
+            Hotel Websites
+          </Link>
         </div>
 
         {/* Contact Button */}
@@ -81,6 +89,14 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+
+          <Link
+            to="/hotel-website-design"
+            onClick={() => setMenuOpen(false)}
+            className="block py-3 font-bold text-blue-700 hover:text-blue-900"
+          >
+            Hotel Websites
+          </Link>
 
           <a
             href="#contact"

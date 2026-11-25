@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -9,6 +8,9 @@ import Portfolio from "./components/Portfolio";
 import Pricing from "./components/Pricing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
+import HotelLanding from "./pages/HotelLanding";
+import KhajurahoHeritageStay from "./pages/KhajurahoHeritageStay";
 
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
@@ -25,7 +27,7 @@ function HomePage() {
         <Portfolio />
         <Pricing />
         <Contact />
-        <Footer/>
+        <Footer />
       </main>
     </>
   );
@@ -35,13 +37,19 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public Website */}
+        {/* Main Website */}
         <Route path="/" element={<HomePage />} />
 
-        {/* Admin Login */}
+        {/* Hotel & Homestay Website Service */}
+        <Route path="/hotel-website-design" element={<HotelLanding />} />
+        <Route
+          path="/demo/khajuraho-heritage-stay"
+          element={<KhajurahoHeritageStay />}
+        />
+
+        {/* Admin */}
         <Route path="/admin" element={<AdminLogin />} />
 
-        {/* Protected Admin Dashboard */}
         <Route
           path="/admin/dashboard"
           element={
